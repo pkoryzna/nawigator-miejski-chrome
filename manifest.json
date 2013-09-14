@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+
+  "name": "nawigator miejski",
+  "description": "wyszukiwanie połączeń na jakdojade.pl",
+  "version": "2",
+
+  "background": {
+    "scripts": ["js/contextMenu.js"]
+  },
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [ 
+    "geolocation", "storage", "contextMenus"
+  ]
+}
