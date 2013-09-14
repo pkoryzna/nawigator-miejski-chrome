@@ -16,23 +16,22 @@
 	 }
 
 	function goToJD(info, tab){
-		var cityId;
-		chrome.storage.sync.get(["cityId"], function (o){cityId = o.cityId});
-		if(cityId){
-
-			navigator.geolocation.getCurrentPosition(function (position){
-				var fromCoords = position.coords.latitude
-				 + ":" + position.coords.longitude;
-				var fromName = "Moja lokalizacja (dokł. " + position.coords.accuracy + " m)";
-				var toName = info.selectionText;
-				var autoSearch = true;
-				chrome.tabs.create({url : createJDUrl(cityId, fromCoords, fromName, null,
-		 			toName, null, null, autoSearch)})
-			});
-		} else {
-			window.alert("Nie wybrano miasta. Kliknij na przycisk na toolbarze i wybierz miasto.");
-		}
-
+		chrome.storage.sync.get(["cityId"], function (o){
+			if(!(o.cityId)){
+				window.alert("Nie wybrano miasta. Kliknij na przycisk na toolbarze i wybierz miasto.");
+				
+			} else {
+				navigator.geolocation.getCurrentPosition(function (position){
+					var fromCoords = position.coords.latitude
+					 + ":" + position.coords.longitude;
+					var fromName = "Moja lokalizacja (dokł. " + position.coords.accuracy + " m)";
+					var toName = info.selectionText;
+					var autoSearch = true;
+					chrome.tabs.create({url : createJDUrl(o.cityId, fromCoords, fromName, null,
+			 			toName, null, null, autoSearch)});
+					});
+			}
+		});
 	}
 
 	chrome.contextMenus.create({
