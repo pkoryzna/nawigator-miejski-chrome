@@ -58,9 +58,8 @@
 	 }
 
 	 function setGeoDefault(){
-	 	var geoDefault = $("#geoDefaultOption").prop("checked");
-		chrome.storage.sync.set({"geoDefault": geoDefault});
-		if(geoDefault) {getLocation()} else {disableLocation()};
+		chrome.storage.sync.set({"geoDefault": useGeo});
+		// if(geoDefault) {getLocation()} else {disableLocation()};
 	 }
 
 	 function disableLocation(){
@@ -69,6 +68,8 @@
 		locationBtn.onclick = getLocation;
 		$(fromInput).prop({disabled: false});
 		fromInput.value = "";
+		setGeoDefault();
+		$(fromInput).focus();
 	 }
 
 	 function getLocation(){
@@ -85,6 +86,8 @@
 	 	$(locationBtn).addClass("btn-success");
 	 	locationBtn.onclick = disableLocation;
 	 	$(fromInput).prop({disabled: true});
+	 	setGeoDefault();
+	 	$(toInput).focus();
 	 }
 
 	 function datetimeToggle(){
@@ -109,22 +112,22 @@
 	 	locationBtn = mainForm.useLoc;
 	 	nowCheckbox = mainForm.now;
 	 	datetimeInput = mainForm.datetime;
- 	    $("#geoDefaultOption").change(setGeoDefault);
+ 	    
 	 	nowCheckbox.onclick = datetimeToggle;
 	 	locationBtn.onclick = getLocation;
 	 	$("#cityMenu a").click(setCity);
 	 	chrome.storage.sync.get(["cityId", "cityName", "geoDefault"],
 	 		function(o){
-	 			if(!chrome.runtime.lastError){
+	 			if(!(chrome.runtime.lastError)){
 		 				cityId = o.cityId;
 		 				$("#cityName").html(cityName = o.cityName);
-		 				if(o.geoDefault) {
-		 					$("#geoDefaultOption").prop({"checked": true});
+		 				if(useGeo = o.geoDefault){
 		 					getLocation();
-		 				}
+		 				} 
 	 				}else{
 	 					console.log(chrome.runtime.lastError.message);
-	 				} });
+	 				}
+	 	});
 	 })();
 
 })();
