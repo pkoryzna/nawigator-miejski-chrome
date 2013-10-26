@@ -1,89 +1,89 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>Getting Started Extension's Popup</title>
-		<style>
-			body {
-				width: 400px;
-				padding-top: 15px; 
-			}
-		</style>
+  <head>
+    <meta charset="utf-8">
+    <title>Getting Started Extension's Popup</title>
+    <style>
+      body {
+      width: 400px;
+      padding-top: 15px; 
+      }
+    </style>
 
-		<div class="container">
-			
-			<form role="form" action="#">
-				<div class="form-group">
-					<div class="btn-group">
-						<button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown">
-							<span id="cityName">Wybierz miasto</span> <span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu" id="cityMenu">
-							<li><a href="#" data-cid="1000" data-name="Poznań">Poznań</a></li>
-							<li><a href="#" data-cid="2000" data-name="Wrocław">Wrocław</a></li>
-							<li><a href="#" data-cid="3000" data-name="Warszawa">Warszawa</a></li>
-							<li><a href="#" data-cid="4000" data-name="Szczecin">Szczecin</a></li>
-							<li><a href="#" data-cid="5000" data-name="Kraków">Kraków</a></li>
-							<li><a href="#" data-cid="6000" data-name="Łódź">Łódź</a></li>
-							<li><a href="#" data-cid="7000" data-name="Trójmiasto">Trójmiasto</a></li>
-							<li><a href="#" data-cid="8000" data-name="Bydgoszcz">Bydgoszcz</a></li>
-							<li><a href="#" data-cid="8001" data-name="Toruń">Toruń</a></li>
-							<li><a href="#" data-cid="9000" data-name="GOP">GOP</a></li>
-							<li><a href="#" data-cid="10000" data-name="Radom">Radom</a></li>
-							<li><a href="#" data-cid="11000" data-name="Białystok">Białystok</a></li>
-						</ul>
-					</div>
-					<div class="btn-group hidden">
-						<button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown">
-								<span id="cityName">Opcje</span> <span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu" id="optionsMenu" >
-								<li><a href="#">
-									<label style="font-weight: normal;">
-										<input type="checkbox" id="geoDefaultOption"> Zawsze używaj lokalizacji
-									</label>
-								</a></li>
-							</ul>
-					</div>
-				</div>
+    <div class="container">
+      
+      <form role="form" action="#">
+	<div class="form-group">
+	  <div class="btn-group">
+	    <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown">
+	      <span id="cityName">Wybierz miasto</span> <span class="caret"></span>
+	    </button>
+	    <ul class="dropdown-menu" id="cityMenu">
+	      <li><a href="#" data-cid="1000" data-name="Poznań">Poznań</a></li>
+	      <li><a href="#" data-cid="2000" data-name="Wrocław">Wrocław</a></li>
+	      <li><a href="#" data-cid="3000" data-name="Warszawa">Warszawa</a></li>
+	      <li><a href="#" data-cid="4000" data-name="Szczecin">Szczecin</a></li>
+	      <li><a href="#" data-cid="5000" data-name="Kraków">Kraków</a></li>
+	      <li><a href="#" data-cid="6000" data-name="Łódź">Łódź</a></li>
+	      <li><a href="#" data-cid="7000" data-name="Trójmiasto">Trójmiasto</a></li>
+	      <li><a href="#" data-cid="8000" data-name="Bydgoszcz">Bydgoszcz</a></li>
+	      <li><a href="#" data-cid="8001" data-name="Toruń">Toruń</a></li>
+	      <li><a href="#" data-cid="9000" data-name="GOP">GOP</a></li>
+	      <li><a href="#" data-cid="10000" data-name="Radom">Radom</a></li>
+	      <li><a href="#" data-cid="11000" data-name="Białystok">Białystok</a></li>
+	    </ul>
+	  </div>
+	  <div class="btn-group hidden">
+	    <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown">
+	      <span id="cityName">Opcje</span> <span class="caret"></span>
+	    </button>
+	    <ul class="dropdown-menu" id="optionsMenu" >
+	      <li><a href="#">
+		  <label style="font-weight: normal;">
+		    <input type="checkbox" id="geoDefaultOption"> Zawsze używaj lokalizacji
+		  </label>
+	      </a></li>
+	    </ul>
+	  </div>
+	</div>
 
-				<div class="form-group">
-					<div class="input-group">
-						<input type="text" class="form-control" placeholder="z" id="from" tabindex="1">
-						<span class="input-group-btn">
-							<button class="btn btn-default" type="button" id="useLoc"><span class="glyphicon glyphicon-screenshot"></span> <span id="locInfo">użyj lokalizacji</span></button>
-						</span>
-					</div><!-- /input-group -->
-				</div>
-				
-				<div class="form-group">
-						<input type="text" class="form-control" placeholder="do" id="to" tabindex="2">
-				</div>
+	<div class="form-group">
+	  <div class="input-group">
+	    <input type="text" class="form-control" placeholder="z" id="from" tabindex="1">
+	    <span class="input-group-btn">
+	      <button class="btn btn-default" type="button" id="useLoc"><span class="glyphicon glyphicon-screenshot"></span> <span id="locInfo">użyj lokalizacji</span></button>
+	    </span>
+	  </div><!-- /input-group -->
+	</div>
+	
+	<div class="form-group">
+	  <input type="text" class="form-control" placeholder="do" id="to" tabindex="2">
+	</div>
 
-					<div class="checkbox">
-						<label>
-							<input type="checkbox" checked="true" id="now"> teraz
-						</label>
-					</div>
+	<div class="checkbox">
+	  <label>
+	    <input type="checkbox" checked="true" id="now"> teraz
+	  </label>
+	</div>
 
-				<div class="form-group">
-						<input type="datetime-local" class="form-control hidden" id="datetime">
-				</div>
-				
+	<div class="form-group">
+	  <input type="datetime-local" class="form-control hidden" id="datetime">
+	</div>
+	
 
-				<div class="form-group">
-					<button type="submit" class="btn btn-primary btn-lg btn-block" type="submit" tabindex="3">szukaj</button>
-				</div>
-			</form>
-		</div>
+	<div class="form-group">
+	  <button type="submit" class="btn btn-primary btn-lg btn-block" type="submit" tabindex="3">szukaj</button>
+	</div>
+      </form>
+    </div>
 
-		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-		<script src="js/jquery.js"></script>
-
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/popup.js"></script>
-	</head>
-	<body>
-	</body>
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <script src="js/require.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/popup.js"></script>
+  </head>
+  <body>
+  </body>
 </html>
 
